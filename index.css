@@ -1,4 +1,9 @@
-/*START Parallax Depth Cards */
+.gap {
+  gap: 1rem;
+}
+
+
+/*START Parallax Depth Cards class="1.1" */
 body {
   margin: 40px 0;
   font-family: "Raleway";
@@ -24,10 +29,15 @@ h1 + p, p + p {
   padding: 40px 80px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  /* justify-content: center; */
 
   /* custom */
   flex-flow: row;
+  padding: 1rem;
+  width: auto;
+  overflow-y: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
 }
 .card-wrap {
   margin: 10px;
@@ -125,7 +135,7 @@ h1 + p, p + p {
 /*END Parallax Depth Cards */
 
 /* _________________________________________________________________________________________________________________________________________ */
-/* START Horizontal scroll snap */
+/* START Horizontal scroll snap  */
 .horizontal-snap {
   margin: 0 auto;
   display: grid;
@@ -151,3 +161,140 @@ h1 + p, p + p {
 }
 /* END Horizontal scroll snap */
 /* _________________________________________________________________________________________________________________________________________ */
+/* _________________________________________________________________________________________________________________________________________ */
+/* START Image overlay on hover */
+.hover-img {
+  background-color: #000;
+  color: #fff;
+  display: inline-block;
+  margin: 8px;
+  /* max-width: 320px; */
+  max-width: 200px;
+  /* min-width: 240px; */
+  min-width: 120px;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.hover-img * {
+  box-sizing: border-box;
+  transition: all 0.45s ease;
+}
+
+.hover-img:before,
+.hover-img:after {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-top: 32px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 32px solid rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: '';
+  transition: all 0.3s ease;
+  z-index: 1;
+  opacity: 0;
+  transform: scaleY(2);
+}
+
+.hover-img img {
+  vertical-align: top;
+  max-width: 100%;
+  backface-visibility: hidden;
+}
+
+.hover-img figcaption {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  align-items: center;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.1em;
+  opacity: 0;
+  z-index: 2;
+  transition-delay: 0.1s;
+  font-size: 24px;
+  font-family: sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.hover-img:hover:before,
+.hover-img:hover:after {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.hover-img:hover > img {
+  opacity: 0.7;
+}
+
+.hover-img:hover figcaption {
+  opacity: 1;
+}
+/* END Image overlay on hover */
+/* _________________________________________________________________________________________________________________________________________ */
+/* START Show additional content on hover */
+.card2 {
+  width: 300px;
+  height: 280px;
+  padding: 0;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+  border-radius: 8px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.card2 * {
+  transition: 0.3s ease all;
+}
+
+.card2 img {
+  margin: 0;
+  width: 300px;
+  height: 224px;
+  object-fit: cover;
+  display: block;
+}
+
+.card2 h3 {
+  margin: 0;
+  padding: 12px 12px 48px;
+  line-height: 32px;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.card2 .focus-content {
+  display: block;
+  padding: 8px 12px;
+}
+
+.card2 p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.card2:hover img, .card2:focus-within img {
+  margin-top: -80px;
+}
+
+.card2:hover h3, .card2:focus-within h3 {
+  padding: 8px 12px 0;
+}
+/* END Show additional content on hover */
+
+/* _________________________________________________________________________________________________________________________________________ */
+/* _________________________________________________________________________________________________________________________________________ */
+/* _________________________________________________________________________________________________________________________________________ */
+/* _________________________________________________________________________________________________________________________________________ */
+
